@@ -6,15 +6,15 @@
                     {{ $post->title }}
                 </a>
             </h1>
-            <p>
+            <div>
                 <a href="/categories/{{ $post->category->slug }}">
                     {{ $post->category->name }}
                 </a>
-            </p>
+            </div>
             <p>
                 {{ $post->excerpt }}
             </p>
-        </article>
 
+        </article>
     @endforeach
 </x-layout>
