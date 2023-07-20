@@ -1,20 +1,9 @@
 <x-layout>
-    @foreach ($posts as $post)
-        <article>
-            <h1>
-                <a href="/posts/{{ $post->slug }}">
-                    {{ $post->title }}
-                </a>
-            </h1>
-            <p>
-                <a href="/categories/{{ $post->category->slug }}">
-                    {{ $post->category->name }}
-                </a>
-            </p>
-            <p>
-                {{ $post->excerpt }}
-            </p>
-        </article>
-
-    @endforeach
+    <x-featured-post-card :post="$posts->splice(0,1)" />
+    <div class="lg:grid lg:grid-cols-2">
+        <x-post-card :posts="$posts->splice(0,2)" />
+    </div>
+    <div class="lg:grid lg:grid-cols-3">
+        <x-post-card :posts="$posts->splice(0,3)" />
+    </div>
 </x-layout>
