@@ -25,10 +25,10 @@ Route::get(
 );
 
 Route::get(
-    '/posts/{post}', function ($slug) {
+    '/posts/{post}', function ($id) {
         return view(
             'post', [
-            'post' => Post::findOrFail($slug),
+            'post' => Post::findOrFail($id),
             ]
         );
 
