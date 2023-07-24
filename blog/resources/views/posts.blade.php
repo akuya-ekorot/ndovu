@@ -1,9 +1,15 @@
+@props(['posts']);
+
 <x-layout>
-    <x-featured-post-card :post="$posts->splice(0,1)" />
-    <div class="lg:grid lg:grid-cols-2">
-        <x-post-card :posts="$posts->splice(0,2)" />
-    </div>
-    <div class="lg:grid lg:grid-cols-3">
-        <x-post-card :posts="$posts->splice(0,3)" />
-    </div>
+    @if ($posts->count())
+
+        <x-featured-post-card :post="$posts[0]" />
+
+        @if ($posts->count() > 1)
+
+            <x-post-grid :posts="$posts->skip(1)" />
+
+        @endif
+
+    @endif
 </x-layout>
