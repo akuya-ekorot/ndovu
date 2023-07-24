@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\User;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,8 @@ use App\Models\User;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/tasks/{id}', [TaskController::class, 'show']);
 
 Route::get(
     '/', function () {
